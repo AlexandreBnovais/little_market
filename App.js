@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import * as splashScreen from 'expo-splash-screen';
+import { 
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    useFonts
+} from '@expo-google-fonts/poppins';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { RootLayout } from './src/routes/_layout';
+
+splashScreen.preventAutoHideAsync();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    const [ loaded , error ] = useFonts({ 
+        Poppins_400Regular,
+        Poppins_500Medium,
+        Poppins_600SemiBold
+    });
+    
+    useEffect(() => {
+        if( loaded | error ) {
+            splashScreen.hideAsync();
+        } 
+    }, [loaded , error]);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    if(!loaded | !error ) {
+        return null;
+    }
+
+    return(
+        <SafeAreaProvider>
+            <NavigationContainer>
+                <RootLayout />
+            </NavigationContainer>
+        </SafeAreaProvider>
+    );
+}
