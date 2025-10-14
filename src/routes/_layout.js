@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 export function RootLayout() {
     return (
-        <Stack.Navigator initialRouteName='Splash'>
+        <Stack.Navigator initialRouteName='Home'>
             <Stack.Screen name='Home' component={HomeScreen} />
             <Stack.Screen name='Splash' component={ShoppingScreen} />
             <Stack.Screen name='Shopping' component={SplashScreen} />
