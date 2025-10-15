@@ -1,13 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { RootLayout } from './src/routes/_layout';
-
+import { RootTabBar } from './src/routes/tabs';
 
 export default function App() {
     return(
         <SafeAreaProvider>
             <NavigationContainer>
-                <RootLayout />
+                <RootTabBar />
             </NavigationContainer>
         </SafeAreaProvider>
     );
