@@ -11,7 +11,6 @@ const Tab = createBottomTabNavigator();
 export const RootTabBar = () => {
     return(
         <Tab.Navigator 
-            initialRouteName="Shopping"
             screenOptions={( { route } ) => ({
             tabBarIcon: ({ color, size, focused}) => {
                 let icon;
