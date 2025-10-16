@@ -10,9 +10,9 @@ export function SplashScreen() {
         <SafeAreaView style={styles.container}>
             <Image style={styles.imgContent} source={require('../assets/main_image.png')}/>
             <View style={styles.textContent}>
-                <Text style={styles.title}>Entregaremos<br/> mantimentos à<br/> sua porta</Text>
+                <Text style={styles.title}>Entregaremos mantimentos à sua porta</Text>
                 <Text style={styles.paragraph}>
-                    A mercearia oferece vegetais e frutas frescas.<br/>
+                    A mercearia oferece vegetais e frutas frescas.
                     Encomende itens frescos na mercearia.
                 </Text>
             </View>
