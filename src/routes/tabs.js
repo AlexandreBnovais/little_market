@@ -10,7 +10,9 @@ const Tab = createBottomTabNavigator();
 
 export const RootTabBar = () => {
     return(
-        <Tab.Navigator screenOptions={( { route } ) => ({
+        <Tab.Navigator 
+            initialRouteName="Shopping"
+            screenOptions={( { route } ) => ({
             tabBarIcon: ({ color, size, focused}) => {
                 let icon;
 
@@ -28,8 +30,8 @@ export const RootTabBar = () => {
          })}
         >
             <Tab.Screen name="Home" component={HomeScreen}/>
-            <Tab.Screen name="Shopping" component={ShoppingScreen}/>
             <Tab.Screen name="Search" component={SearchScreen}/>
+            <Tab.Screen name="Shopping" component={ShoppingScreen}/>
         </Tab.Navigator>
     )
 }

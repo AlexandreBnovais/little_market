@@ -6,10 +6,10 @@ import {
     StyleSheet
 } from "react-native";
 import { Theme } from "../ui";
+import EvilIcons from '@expo/vector-icons/EvilIcons';
 
-export function ListItem({ 
+export function Shopping({ 
     title,
-    date,
     imageId,
     price,
     itens,
@@ -17,29 +17,33 @@ export function ListItem({
 }) {
 
     return (
-        <TouchableOpacity style={listStyle.container}>
-            <View style={listStyle.toggleRight}>
+        <View style={styles.container}>
+            <View style={styles.toggleRight}>
                 <Image
-                    style={[listStyle.img, {backgroundColor: background}]} 
+                    style={[styles.img, {backgroundColor: background}]} 
                     source={imageId}
                 />
 
                 <View>
-                    <Text style={listStyle.textPrimary}>{title}</Text>
-                    <Text style={listStyle.textSecondary}>{date}</Text>
+                    <Text style={styles.textPrimary}>{title}</Text>
+                    <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
+                        <Text style={styles.priceText}>$ {price}</Text>
+                        <Text style={styles.priceTextItem}>{itens} Itens</Text>
+                    </View>
                 </View>
             </View>
 
-            <View style={{ alignItems: "flex-end"}}>
-                <Text style={listStyle.priceText}>$ {price}</Text>
-                <Text style={listStyle.priceTextItem}>{itens} Itens</Text>
-            </View>
-        </TouchableOpacity>
+            <TouchableOpacity style={{flexDirection: 'row'}}>
+                <EvilIcons name="pencil" size={24} color="black" />
+                <Text>Editar</Text>
+            </TouchableOpacity>
+
+        </View>
     )
 }
 
 
-const listStyle = StyleSheet.create({ 
+const styles = StyleSheet.create({ 
     container: {
         flex: 1,
         flexDirection: 'row',
